@@ -21,11 +21,19 @@ module.exports = function(sequelize, DataTypes) {
     phone: {
       type: DataTypes.STRING,
       validate: {isNumeric:true, len:[10, 17]}
+    },
+    student_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        models: 'models.Students',
+        key: 'id'
+      }
     }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        Teacher.hasMany(models.Student, {foreignKey: 'student_id'})
       }
     }
   });

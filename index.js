@@ -23,13 +23,16 @@ let Teacher = models.Teacher
 // Student.get_Name()
 // Student.calcAge()
 
-Teacher.create({
-  name: faker.name.firstName(),
-  email: faker.internet.email(),
-  phone: Math.random()*10000000000000000
-})
+// Teacher.create({
+//   name: faker.name.firstName(),
+//   email: faker.internet.email(),
+//   phone: Math.random()*10000000000000000
+// })
 // Teacher.create({
 //   name: "Izhha",
 //   email: "foo@bar.com",
 //   phone: "8671327781244"
 // })
+
+Teacher.hasOne(Student)
+Student.belongsTo(Teacher)
