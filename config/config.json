@@ -1,0 +1,6 @@
+{
+  "development": {
+    "storage": "./db/association.db",
+    "dialect": "sqlite"
+  }
+}
