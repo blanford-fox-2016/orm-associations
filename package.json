@@ -1,0 +1,24 @@
+{
+  "name": "orm-associations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blanford-fox-2016/orm-associations.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blanford-fox-2016/orm-associations/issues"
+  },
+  "homepage": "https://github.com/blanford-fox-2016/orm-associations#readme",
+  "dependencies": {
+    "sequelize": "^3.24.3",
+    "sequelize-isunique-validator": "^1.1.1",
+    "sqlite3": "^3.1.6"
+  }
+}
