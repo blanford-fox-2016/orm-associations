@@ -3,12 +3,6 @@
 let models = require('./models/index')
 let faker = require('faker')
 
-//
-// models.Teacher.addTeacher('Haidar','haidar@gmail.com').then(function(promise){
-//   models.Student.addStudent('Ahyana',16,'ahyana@gmail.com','0834567890',promise.dataValues.id)
-// })
-
-
 
 // for(var i=0; i<19; i++){
 //   models.Student.create({
@@ -34,4 +28,33 @@ let showTeacherOfStudent = (student_id)=>{ //CAN RUN WITHOUT ASSOCIATION
   })
 }
 
-showTeacherOfStudent(4)
+let findStudentOf=(teacher_id)=>{
+  models.Teacher.findOne({
+    where:{id:teacher_id},
+    include:[{model:models.Student}],
+    attributes:['name']
+  }).then(function(teacher,err){
+    teacher.getStudent().then(function(student,err){
+      console.log(student);
+      let teacherStudent = student.getTeacher()
+      teacherStudent.then(function(new_student,err){
+        let studenty = new_student.dataValues.name
+      })
+    });
+  })
+}
+let testAssociation = () => {
+  models.Teacher.findOne({
+    where:{id:3}
+  }).then(function(data){
+    data.destroy().then(function(){
+      console.log(`Data deleted`);
+    })
+  })
+}
+
+
+
+// showTeacherOfStudent(4)
+// findStudentOf(2)
+// testAssociation(3) // DELETE TEACHER ID 3 TO GET NULL ON STUDENT.TEACHER_ID (APPROVED)
