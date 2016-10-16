@@ -21,21 +21,21 @@ module.exports = {
         onDelete: 'SET NULL',
         onUpdate: 'CASCADE'
       }
-    ),
-
-    return queryInterface.addColumn(
-      'students',
-      'teacher_id',
-      {
-        type: Sequelize.STRING,
-        references :{
-            model : 'Teacher',
-            key: 'id'
-        },
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE'
-      }
     )
+    //
+    // return queryInterface.addColumn(
+    //   'students',
+    //   'teacher_id',
+    //   {
+    //     type: Sequelize.STRING,
+    //     references :{
+    //         model : 'Teacher',
+    //         key: 'id'
+    //     },
+    //     onDelete: 'SET NULL',
+    //     onUpdate: 'CASCADE'
+    //   }
+    // )
 
 
 

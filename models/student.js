@@ -38,8 +38,8 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        students.hasMany(models.Teacher);
-        students.belongsTo(models.Teacher);
+        students.hasMany(models.relation);
+          
       },
       get_name: function(name){
         students.findAll({
