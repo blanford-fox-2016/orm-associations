@@ -18,37 +18,33 @@ let Student = models.Student
 // })
 
 // Teacher.create({
-//   name: "Aji a Wijaasyaaa",
-//   email: "ajiladsafasdfasdfasdangaaaaa123123123112asdfasf.exi31231223123@hacktiv8.com",
+//   name: "Guru1",
+//   email: "Guru1@hacktiv8.com",
 //   phone: "0911231231"
 // }).then((teacher, err) => {
 //   // console.log(teacher.dataValues.id);
 //   Student.create({
-//     first_name: "Yoni",
+//     first_name: "murid1",
 //     last_name: "Putra",
 //     gender: "male",
 //     birthday: "1994-03-10",
-//     email: "yoniputra@yahoo.com",
+//     email: "murid1@yahoo.com",
 //     phone: "0899123131",
-//     teacher_id: teacher.dataValues.id
+//     teacherId: teacher.dataValues.id
 //   })
 // })
 
 
 Student.findOne({
   where: {
-    id: 9
+    id: 1
   },
-  attributes: ['teacher_id', 'first_name', 'last_name']
+  include: {
+    model: Teacher
+  }
 }).then((student, err) => {
-  // console.log(`${student.dataValues.teacher_id}`)
-  Teacher.findOne({
-    where: {
-      id: student.dataValues.teacher_id
-    }
-  }).then((teacher, err)=>{
-    // console.log(student.dataValues.first_name);
-    // console.log(teacher.dataValues.name);
-    console.log(`Student's Name : ${student.dataValues.first_name} ${student.dataValues.last_name}, Teacher's Name : ${teacher.dataValues.name}`);
+  // console.log(`${student.dataValues.first_name}`)
+  student.getTeacher().then((teacher, err) => {
+    console.log(`Student's Name : ${student.dataValues.first_name}\nTeacher's Name ${teacher.dataValues.name}`)
   })
 })
