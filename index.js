@@ -6,33 +6,31 @@ var Teacher = models.Teacher
 var Student = models.Student
 
 
+
 // Student.create({
-//   name: "lala",
-//   teacher_id: 2
-// }).catch(function(err) {
-//   console.log(err.message);
-// })
-// Student.create({
-//   name: "lele",
-//   teacher_id: 2
+//   name: "lolo",
+//   TeacherId: 1
 // }).catch(function(err) {
 //   console.log(err.message);
 // })
 
-Student.findOne().then((student, err) => {
-  student.getTeachers().then((teachers, err) => {
-    // console.log(students);
-    for (var i = 0; i < teachers.length; i++) {
-      console.log(`${student.name} ${teachers[i].name}`)
-    }
-  })
+
+// Student.findAll({
+//   where: {
+//     TeacherId: 1
+//   }
+// }).then(function (data) {
+//   for (var i = 0; i < data.length; i++) {
+//     console.log(`${data[i].id}. ${data[i].name}`)
+//   }
+// })
+
+Teacher.findAll({
+  where: {
+    StudentId: 1
+  }
+}).then(function (data) {
+  for (var i = 0; i < data.length; i++) {
+    console.log(`${data[i].id} ${data[i].name}`)
+  }
 })
-
-// Teacher.findOne().then((teacher, err) => {
-//   teacher.getStudents().then((students, err) => {
-//     // console.log(students);
-//     for (var i = 0; i < students.length; i++) {
-//       console.log(`${teacher.name} ${students[i].name}`)
-//     }
-//   })
-// })
