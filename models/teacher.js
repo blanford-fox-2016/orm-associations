@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Teacher.hasMany(models.Student)
+        Teacher.belongsToMany(models.Student, {through: 'StudentTeacher', foreignKey: 'TeacherId'})
       },
       addTeacher: function(name,email){
         Teacher.create({
