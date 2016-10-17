@@ -23,17 +23,13 @@ module.exports = function(sequelize, DataTypes) {
       validate: {isNumeric:true, len:[10, 17]}
     },
     student_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        models: 'models.Students',
-        key: 'id'
-      }
+      type: DataTypes.INTEGER
     }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Teacher.hasMany(models.Student, {foreignKey: 'student_id'})
+        Teacher.hasMany(models.Student)
       }
     }
   });

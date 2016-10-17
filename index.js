@@ -23,8 +23,10 @@ let Teacher = models.Teacher
 // Student.get_Name()
 // Student.calcAge()
 
+////using faker to create random teachers or students
 // Teacher.create({
-//   name: faker.name.firstName(),
+//   firstname: faker.name.firstName(),
+//   lastname: faker.name.lastName(),
 //   email: faker.internet.email(),
 //   phone: Math.random()*10000000000000000
 // })
@@ -34,5 +36,6 @@ let Teacher = models.Teacher
 //   phone: "8671327781244"
 // })
 
-Teacher.hasOne(Student)
-Student.belongsTo(Teacher)
+Teacher.update({
+
+})

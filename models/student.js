@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Student.belongsTo(models.Teacher, {foreignKey: 'student_id'})
+        Student.belongsTo(models.Teacher)
       },
       get_Name:function(){
        Student.findAll({
