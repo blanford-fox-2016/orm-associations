@@ -30,8 +30,17 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         Teacher.hasMany(models.Student)
+      },
+
+      cek_assos: function(){
+        Teacher.findAll({
+          attributes: ['student_id']
+        }).then((data) => {
+          console.log(data)
+        });
       }
-    }
+      }
+    
   });
   return Teacher;
 };

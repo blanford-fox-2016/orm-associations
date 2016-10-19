@@ -36,6 +36,4 @@ let Teacher = models.Teacher
 //   phone: "8671327781244"
 // })
 
-Teacher.update({
-
-})
+Teacher.cek_assos()
