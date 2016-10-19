@@ -38,16 +38,16 @@ let Teacher = models.Teacher
 
 var teacher_student = ()=>{
   for(var i =1; i < 16; i++){
+    var x = Math.ceil(Math.random()*10)-1
     Student.update({
-      teacher_id: (Math.ceil(Math.random()*10)-1)
+      'teacher_id': `"${x}"`
     }, {
       where: {
-       id: i
+       'id': i
       }
     })
   }
 
 };
-teacher_student()
 
 // Teacher.cek_assos()
