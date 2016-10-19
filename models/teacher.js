@@ -34,13 +34,12 @@ module.exports = function(sequelize, DataTypes) {
 
       cek_assos: function(){
         Teacher.findAll({
-          attributes: ['student_id']
         }).then((data) => {
           console.log(data)
         });
       }
       }
-    
+
   });
   return Teacher;
 };

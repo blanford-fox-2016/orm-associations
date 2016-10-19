@@ -36,4 +36,18 @@ let Teacher = models.Teacher
 //   phone: "8671327781244"
 // })
 
-Teacher.cek_assos()
+var teacher_student = ()=>{
+  for(var i =1; i < 16; i++){
+    Student.update({
+      teacher_id: (Math.ceil(Math.random()*10)-1)
+    }, {
+      where: {
+       id: i
+      }
+    })
+  }
+
+};
+teacher_student()
+
+// Teacher.cek_assos()
